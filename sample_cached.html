@@ -1,0 +1,57 @@
+<!-- Same as sample.html, but loads the packed, cached version of files -->
+<html>
+<head>
+<!-- only put scripts here if you really need to -->
+
+<script src="import.js"></script>
+
+<script>
+/* Simple logger -- looks for div with id "log". We want this available from the get-go. */
+function log(str){
+  var logger = document.getElementById("log");
+  if (logger){
+	logger.innerHTML += new Date().toString() + ": ";
+	logger.innerHTML += str;
+	logger.innerHTML += "<br/>";
+  }
+}
+</script>
+
+</head>
+<body>
+
+<!-- init scripts that are absolutely necessary -->
+<table>
+<tr>
+<td>
+Put content here...
+</td>
+<td>
+And here
+</td>
+</tr>
+</table>
+
+<div id="log">
+</div>
+
+<script src="example_compressed.js.packed.php"></script>
+
+<script>
+	$import('example_imported.js.packed.php');
+</script>
+
+<script>
+	function loadDelayedScripts(){
+		$import('example_delayed.js.packed.php');
+	}
+	
+	var delay = 5; // wait and then load the file
+	setTimeout("loadDelayedScripts()", delay * 1000);
+</script>
+
+<!-- heavy scripts -->
+<!-- delayed loading -->
+<!-- stat tracking code -->
+</body>
+</html>

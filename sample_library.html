@@ -1,0 +1,43 @@
+<!-- In case you want to load a set of files at once, Load them as a single library. This can reduce the number of requests you make. --> 
+<html>
+<head>
+<!-- only put scripts here if you really need to -->
+
+<script src="import.js"></script>
+
+<script>
+/* Simple logger -- looks for div with id "log". We want this available from the get-go. */
+function log(str){
+  var logger = document.getElementById("log");
+  if (logger){
+	logger.innerHTML += new Date().toString() + ": ";
+	logger.innerHTML += str;
+	logger.innerHTML += "<br/>";
+  }
+}
+</script>
+
+</head>
+<body>
+
+<!-- init scripts that are absolutely necessary -->
+<table>
+<tr>
+<td>
+Put content here...
+</td>
+<td>
+And here
+</td>
+</tr>
+</table>
+
+<div id="log">
+</div>
+
+<!-- load all files at once -->
+<script src="example.lib.js"></script>
+
+<!-- stat tracking code -->
+</body>
+</html>

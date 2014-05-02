@@ -1,0 +1,49 @@
+<html>
+<head>
+<!-- only put scripts here if you really need to -->
+</head>
+<body>
+
+<!-- Scripts that need to run first -->
+<script src="import.js"></script>
+<script>
+/* Simple logger -- looks for div with id "log". 
+   We want this available from the get-go. */
+
+function log(str){
+  var logger = document.getElementById("log");
+  if (logger){
+	logger.innerHTML += new Date().toString() + ": ";
+	logger.innerHTML += str;
+	logger.innerHTML += "<br/>";
+  }
+}
+</script>
+
+<!-- content, images, tables, etc. -->
+Put content here...
+
+<div id="log">
+</div>
+
+<!-- include packed version --> 
+<script src="example_compressed.js.packed"></script>
+
+<!-- dynamic import -->
+<script>
+	$import('example_imported.js');
+</script>
+
+<!-- delayed loading -->
+<script>
+	function loadDelayedScripts(){
+		$import('example_delayed.js');
+	}
+	
+	var delay = 5; // wait and then load the file
+	setTimeout("loadDelayedScripts()", delay * 1000);
+</script>
+
+<!-- other heavy scripts, tracking code, etc. -->
+</body>
+</html>

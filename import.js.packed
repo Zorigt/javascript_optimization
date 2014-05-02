@@ -1,0 +1,12 @@
+function $import(_1){
+var _2=document.createElement("script");
+_2.setAttribute("src",_1);
+_2.setAttribute("type","text/javascript");
+document.getElementsByTagName("head")[0].appendChild(_2);
+}
+function $importNoCache(_3){
+var ms=new Date().getTime().toString();
+var _5="?"+ms;
+$import(_3+_5);
+}
+
